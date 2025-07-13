@@ -6,7 +6,7 @@ This project implements a serverless pipeline on AWS to forecast grocery sales. 
 
 The pipeline is designed as an event-driven, serverless architecture on AWS, as depicted in the architecture diagram below. It automates the process of ingesting raw sales data, transforming it, and generating sales forecasts.
 
-![Architecture Diagram](architecture.png)
+![Architecture Diagram](Architecture%20Diagram.png)
 
 The workflow is as follows:
 
