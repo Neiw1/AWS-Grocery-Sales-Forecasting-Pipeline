@@ -1,0 +1,16 @@
+venv/
+.env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+*.log
+*.pt
+*.pth
+*.h5
+*.ckpt
+.vscode/
+data/
+output/
+sales_forecasting_data/
+data/
