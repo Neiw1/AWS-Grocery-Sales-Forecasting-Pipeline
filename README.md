@@ -53,14 +53,27 @@ This architecture ensures that the entire process, from data upload to predictio
 
 ## File Descriptions
 
-| File                                           | Description                                                                                             |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `for_uploading.csv`                            | A sample CSV file to be uploaded to the **Raw Data S3 Bucket**.                                         |
-| `test_data1.csv`                               | Test data for prediction.                                                                               |
-| `test_for_prediction.csv`                      | A sample of test data for prediction.                                                                   |
-| `lambda functions/grocery-sale-etl.py`         | The ETL Lambda for data cleaning and storage.                                                           |
-| `lambda functions/grocery-sale-prediction.py`  | The Prediction Lambda that performs sales forecasting using the trained model and historical data.      |
-| `miscellaneous/data_prep.py`                   | A script for preparing and splitting the dataset.                                                       |
-| `miscellaneous/data_to_dynamodb.py`            | A utility to upload CSV data to DynamoDB.                                                               |
-| `model training/training.py`                   | The script used to train the sales forecasting model.                                                   |
-| `model training/model.txt`                     | The trained LightGBM model.                                                                             |
+| Path                                                 | Description                                                                                              |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Root**                                             |                                                                                                          |
+| `Architecture Diagram.png`                           | The architecture diagram illustrating the pipeline workflow.                                             |
+| `for_uploading.csv`                                  | A sample CSV file with data to be uploaded to the Raw Data S3 Bucket.                                    |
+| `test_data1.csv`                                     | Test data for local prediction and validation.                                                           |
+| `test_for_prediction.csv`                            | A sample of test data formatted for the prediction pipeline.                                             |
+| **Lambda Functions**                                 |                                                                                                          |
+| `lambda functions/grocery-sale-etl.py`               | The ETL Lambda for data cleaning and storage in DynamoDB and S3.                                         |
+| `lambda functions/grocery-sale-etl.yml`              | The SAM template for deploying the ETL Lambda function.                                                  |
+| `lambda functions/grocery-sale-prediction.py`        | The Prediction Lambda that performs sales forecasting using the trained model and historical data.       |
+| `lambda functions/grocery-sale-prediction.yml`       | The SAM template for deploying the Prediction Lambda function.                                           |
+| `lambda functions/connect-to-dynamodb.py`            | A utility script for connecting to and querying DynamoDB.                                                |
+| `lambda functions/connect-to-dynamodb.yml`           | The SAM template for the DynamoDB connection utility.                                                    |
+| **Miscellaneous**                                    |                                                                                                          |
+| `miscellaneous/data_prep.py`                         | A script for preparing and splitting the raw dataset for model training.                                 |
+| `miscellaneous/data_to_dynamodb.py`                  | A utility to upload CSV data directly to DynamoDB, useful for initial setup.                             |
+| **Model Training**                                   |                                                                                                          |
+| `model training/data cleaning.ipynb`                 | Jupyter Notebook for the data cleaning process.                                                          |
+| `model training/eda.ipynb`                           | Jupyter Notebook for Exploratory Data Analysis (EDA).                                                    |
+| `model training/feature engineering.ipynb`           | Jupyter Notebook detailing the feature engineering process.                                              |
+| `model training/training.py`                         | The script used to train the sales forecasting model.                                                    |
+| `model training/testing.py`                          | The script used to test the trained model's performance.                                                 |
+| `model training/model.txt`                           | The trained LightGBM model file, ready for deployment.                                                   |
